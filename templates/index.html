@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" method="POST">
+        {% csrf_token %}
+        <label>Enter Symbol of stock ex. IBM INFY IDEA</label>
+        <input type="text" name="stocksym">
+        <button>Get</button>
+        </form>
+    <H1>{{stockName}}</H1>
+    <h2>Monthly Price Analysis</h2>
+    <table border="1">
+        <tr>
+            <td>date</td>
+            <td>Open Price</td>
+            <td>high</td>
+            <td>low</td>
+            <td>close</td>
+            <td>volume</td>
+        </tr>
+        <tr>
+            <td>
+                {% for i in date %}
+                {{i}}<br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for i in openPrice %}
+                {{i}}<br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for i in high %}
+                {{i}}<br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for i in low %}
+                {{i}}<br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for i in close %}
+                {{i}}<br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for i in volume %}
+                {{i}}<br>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>
